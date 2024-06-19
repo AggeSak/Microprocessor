@@ -1,0 +1,17 @@
+
+START:	   MVI C,08
+	   LDA 2000
+
+LOOP:	   RAR
+	   JC DONE
+	   RLC
+	   JNZ SKIP
+	   INR L
+	   JMP LOOP
+
+SKIP:	   DCR B
+	   JNZ LOOP
+	   STA 3000
+	   RST 1
+
+DONE:	   HLT
